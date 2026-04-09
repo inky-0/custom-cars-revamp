@@ -893,16 +893,73 @@
       .nav-right { gap: 8px; flex: 0 0 auto; }
       .nav-right a { display: none; }
       .nav-right .nav-cta { display: inline-block; padding: 8px 14px; font-size: 10px; letter-spacing: 0.08em; }
-      /* Logo: stop absolute-centering, sit inline next to hamburger so it
-         can't collide with the CTA */
       .nav-logo {
-        position: static;
-        transform: none;
-        font-size: 15px;
-        letter-spacing: 0.04em;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+        letter-spacing: 0.06em;
         white-space: nowrap;
       }
+      .nav-right .nav-cta { display: none !important; }
       .hamburger { width: 22px; }
+
+      /* Mobile slide-out menu */
+      .mob-menu {
+        position: fixed;
+        top: 0; left: 0;
+        width: 280px;
+        max-width: 80vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(10,10,10,0.97);
+        backdrop-filter: blur(20px);
+        z-index: 200;
+        transform: translateX(-100%);
+        transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+        display: flex;
+        flex-direction: column;
+        padding: 80px 28px 32px;
+        gap: 8px;
+        border-right: 1px solid var(--border);
+      }
+      .mob-menu.open { transform: translateX(0); }
+      .mob-menu a {
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--white-2);
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        transition: color 0.2s;
+      }
+      .mob-menu a:hover { color: var(--white); }
+      .mob-menu .mob-cta {
+        margin-top: 16px;
+        border: 1px solid var(--gold);
+        color: var(--gold);
+        padding: 14px 24px;
+        text-align: center;
+        border-bottom: none;
+        letter-spacing: 0.12em;
+        font-weight: 600;
+        transition: background 0.2s, color 0.2s;
+      }
+      .mob-menu .mob-cta:hover {
+        background: var(--gold);
+        color: var(--black);
+      }
+      .mob-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        z-index: 199;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+      }
+      .mob-overlay.open { opacity: 1; visibility: visible; }
 
       /* Container */
       .container { padding: 0 16px; }
@@ -1052,6 +1109,17 @@
     <a href="#" class="nav-cta">get started</a>
   </div>
 </nav>
+
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mob-menu" id="mobMenu">
+  <a href="#">Browse Cars</a>
+  <a href="#">Sell</a>
+  <a href="#">Membership</a>
+  <a href="#">Dealers</a>
+  <a href="#">Community</a>
+  <a href="#">Blog</a>
+  <a href="#" class="mob-cta">Get Started</a>
+</div>
 
 <!-- ── HERO ──────────────────────────────────────────────── -->
 <section class="hero" id="hero">
@@ -1722,21 +1790,32 @@
     });
   });
 
-  // ── Hamburger (simple) ──
+  // ── Hamburger + mobile menu ──
   const hamburger = document.getElementById('hamburger');
   const hSpans = hamburger.querySelectorAll('span');
-  hamburger.addEventListener('click', () => {
-    const open = hamburger.classList.toggle('open');
+  const mobMenu = document.getElementById('mobMenu');
+  const mobOverlay = document.getElementById('mobOverlay');
+
+  function toggleMenu(forceClose) {
+    const open = forceClose ? false : hamburger.classList.toggle('open');
+    if (forceClose) hamburger.classList.remove('open');
     if (open) {
       gsap.to(hSpans[0], { rotate: 45, y: 6, duration: 0.25 });
       gsap.to(hSpans[1], { opacity: 0, x: -8, duration: 0.2 });
       gsap.to(hSpans[2], { rotate: -45, y: -6, duration: 0.25 });
+      mobMenu.classList.add('open');
+      mobOverlay.classList.add('open');
     } else {
       gsap.to(hSpans[0], { rotate: 0, y: 0, duration: 0.25 });
       gsap.to(hSpans[1], { opacity: 1, x: 0, duration: 0.2 });
       gsap.to(hSpans[2], { rotate: 0, y: 0, duration: 0.25 });
+      mobMenu.classList.remove('open');
+      mobOverlay.classList.remove('open');
     }
-  });
+  }
+  hamburger.addEventListener('click', () => toggleMenu());
+  mobOverlay.addEventListener('click', () => toggleMenu(true));
+  mobMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(true)));
 
   // ── Scroll reveals ──
   gsap.utils.toArray('.reveal').forEach(el => {
