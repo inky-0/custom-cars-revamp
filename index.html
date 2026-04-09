@@ -908,7 +908,20 @@
       .container { padding: 0 16px; }
 
       /* Hero */
-      .hero { min-height: 100svh; }
+      .hero { min-height: 100svh; height: auto; }
+      .hero-slide img {
+        object-fit: cover;
+        object-position: center 40%;
+      }
+      .hero-gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(8,8,8,0.3) 0%,
+          rgba(8,8,8,0.15) 30%,
+          rgba(8,8,8,0.6) 70%,
+          rgba(8,8,8,0.95) 100%
+        );
+      }
       .hero-content {
         padding: 80px 20px 24px;
         display: flex; flex-direction: column;
