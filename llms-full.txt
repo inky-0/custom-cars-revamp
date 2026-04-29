@@ -1,10 +1,10 @@
 # CustomCars.com — Complete Business Information
 
-> 
+> The world's only custom car marketplace. Buy and sell modified, tuned, and custom-built vehicles.
 
 ## About CustomCars.com
 
-CustomCars.com is a trusted Localbusiness serving customers across the United States. With a focus on quality, reliability, and customer satisfaction, CustomCars.com has built a reputation for delivering professional results at fair prices.
+CustomCars.com is a trusted AutoDealer serving customers in Chicago, IL and surrounding areas. With a focus on quality, reliability, and customer satisfaction, CustomCars.com has built a reputation for delivering professional results at fair prices.
 
 ## Contact Information
 
@@ -12,17 +12,33 @@ CustomCars.com is a trusted Localbusiness serving customers across the United St
 |---|---|
 | Phone | (312) 477-4340 |
 | Email | support@customcars.com |
-| Address |  |
+| Address | Chicago, IL, Chicago, IL 60601 |
 | Hours |  |
 | Website | https://custom-cars-revamp-production.up.railway.app/ |
 
 ## Services Offered
 
+### Buy Custom Cars
+CustomCars.com offers professional buy custom cars services in Chicago, IL.
 
+### Sell Custom Cars
+CustomCars.com offers professional sell custom cars services in Chicago, IL.
+
+### Marketplace Listings
+CustomCars.com offers professional marketplace listings services in Chicago, IL.
+
+### Dealer Network
+CustomCars.com offers professional dealer network services in Chicago, IL.
+
+### Vehicle Financing
+CustomCars.com offers professional vehicle financing services in Chicago, IL.
+
+### Shipping
+CustomCars.com offers professional shipping services in Chicago, IL.
 
 ## Service Area
 
-CustomCars.com serves customers across the United States.
+CustomCars.com serves Chicago, IL and surrounding communities.
 
 ---
 *For the most up-to-date information, visit [our website](https://custom-cars-revamp-production.up.railway.app/).*

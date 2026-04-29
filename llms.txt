@@ -1,15 +1,24 @@
 # CustomCars.com
 
-> 
+> The world's only custom car marketplace. Buy and sell modified, tuned, and custom-built vehicles.
 
 ## Contact
 - Phone: (312) 477-4340
 - Email: support@customcars.com
-- Address: 
+- Address: Chicago, IL, Chicago, IL 60601
 - Website: https://custom-cars-revamp-production.up.railway.app/
 
 ## Services
+  - Buy Custom Cars
+  - Sell Custom Cars
+  - Marketplace Listings
+  - Dealer Network
+  - Vehicle Financing
+  - Shipping
 
+## Service Area
+- Primary: Chicago, IL
+- Also serving: greater Chicago metropolitan area
 
 ## Pages
 - [Homepage](https://custom-cars-revamp-production.up.railway.app/)
